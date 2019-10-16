@@ -19,6 +19,18 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/user/register"/>
+			<mvc:exclude-mapping path="/user/checkExist"/>
+			<bean class="com.mmcro.cms.web.AuthIntercepter"></bean>
+		</mvc:interceptor>
+		
+	</mvc:interceptors>
+	
 	<!-- <bean class=""></bean> -->
 	<!-- 不拦截静态资源 -->
 	<mvc:default-servlet-handler />
